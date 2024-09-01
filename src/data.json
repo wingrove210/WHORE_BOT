@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "РУСЛАНА",
+      "city": "ЮЖНО-САХАЛИНСК",
+      "photo": "/img/Girl2.jpg",
+      "height": 175,
+      "weight": 65,
+      "chest": 90,
+      "age": 30
+    },
+    {
+      "id": 2,
+      "name": "РУСЛАНА",
+      "city": "ЮЖНО-САХАЛИНСК",
+      "photo": "/img/Girl2.jpg",
+      "height": 180,
+      "weight": 70,
+      "chest": 95,
+      "age": 35
+    },
+    {
+        "id": 2,
+        "name": "РУСЛАНА",
+        "city": "ЮЖНО-САХАЛИНСК",
+        "photo": "/img/Girl2.jpg",
+        "height": 180,
+        "weight": 70,
+        "chest": 95,
+        "age": 35
+      }
+  ]
