@@ -6,6 +6,7 @@
 body{
     background-color: #242424;
 }
-.logo-text{
-    text-shadow: 0px 0px 816.48px #FF5A81, 0px 0px 466.56px #FF5A81, 0px 0px 272.16px #FF5A81, 0px 0px 136.08px #FFFEFF, 0px 0px 38.88px #FFFEFF, 0px 0px 19.44px #FFFEFF;
-}
+.logo-text {
+    color: white;
+    text-shadow: #FFF 1px 1px 30px;
+  }
