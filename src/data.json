@@ -3,30 +3,30 @@
       "id": 1,
       "name": "РУСЛАНА",
       "city": "ЮЖНО-САХАЛИНСК",
-      "photo": "/img/Girl2.jpg",
+      "photo": ["/img/Girl2.jpg", "/img/Girl3.jpg", "/img/Girl4.jpeg"],
       "height": 175,
       "weight": 65,
       "chest": 90,
-      "age": 30
+      "age": 18
     },
     {
       "id": 2,
       "name": "РУСЛАНА",
       "city": "ВЛАДИВОСТОК",
-      "photo": "/img/Girl2.jpg",
+      "photo": ["/img/Girl3.jpg", "/img/Girl2.jpg"],
       "height": 180,
       "weight": 70,
       "chest": 95,
-      "age": 35
+      "age": 40
     },
     {
         "id": 3,
         "name": "РЕГИНА",
         "city": "ХАБАРОВСК",
-        "photo": "/img/Girl2.jpg",
+        "photo": ["/img/Girl4.jpeg", "/img/Girl3.jpg", "/img/Girl2.jpg"],
         "height": 180,
         "weight": 70,
         "chest": 95,
-        "age": 35
+        "age": 30
       }
   ]

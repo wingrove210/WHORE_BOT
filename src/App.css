@@ -1,3 +1,5 @@
+
+
 *{
     padding: 0;
     margin: 0;
@@ -8,5 +10,11 @@ body{
 }
 .logo-text {
     color: white;
-    text-shadow: #FFF 1px 1px 30px;
-  }
+    text-shadow: #FF5A81 1px 1px 40px;
+}
+.button-arrow-top{
+    z-index: 0;
+}
+.main-filters{
+    z-index: 10000;
+}
