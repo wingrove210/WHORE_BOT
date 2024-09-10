@@ -70,11 +70,11 @@ function Header({onFilterChange}) {
               <div className="w-full flex justify-between">
                 <div className="bg-white border-[#FF5A81] rounded-lg w-[48%] flex justify-between border-2 px-2 py-1">
                   <span>От</span>
-                  <input type="text" placeholder="3000P" className="border-none outline-none w-[40%]" />
+                  <input type="text" placeholder="18" className="border-none outline-none w-[40%]" />
                 </div>
                 <div className="bg-white border-[#FF5A81] rounded-lg w-[48%] flex justify-between border-2 px-2 py-1">
                   <span>До</span>
-                  <input type="text" placeholder="3000P" className="border-none outline-none w-[40%]" />
+                  <input type="text" placeholder="50" className="border-none outline-none w-[40%]" />
                 </div>
               </div>
             </div>
@@ -83,11 +83,11 @@ function Header({onFilterChange}) {
               <div className="w-full flex justify-between">
                 <div className="bg-white border-[#FF5A81] rounded-lg w-[48%] flex justify-between border-2 px-2 py-1">
                   <span>От</span>
-                  <input type="text" placeholder="3000P" className="border-none outline-none w-[40%]" />
+                  <input type="text" placeholder="2" className="border-none outline-none w-[40%]" />
                 </div>
                 <div className="bg-white border-[#FF5A81] rounded-lg w-[48%] flex justify-between border-2 px-2 py-1">
                   <span>До</span>
-                  <input type="text" placeholder="3000P" className="border-none outline-none w-[40%]" />
+                  <input type="text" placeholder="5" className="border-none outline-none w-[40%]" />
                 </div>
               </div>
             </div>
@@ -96,11 +96,11 @@ function Header({onFilterChange}) {
               <div className="w-full flex justify-between">
                 <div className="bg-white border-[#FF5A81] rounded-lg w-[48%] flex justify-between border-2 px-2 py-1">
                   <span>От</span>
-                  <input type="text" placeholder="3000P" className="border-none outline-none w-[40%]" />
+                  <input type="text" placeholder="150" className="border-none outline-none w-[40%]" />
                 </div>
                 <div className="bg-white border-[#FF5A81] rounded-lg w-[48%] flex justify-between border-2 px-2 py-1">
                   <span>До</span>
-                  <input type="text" placeholder="3000P" className="border-none outline-none w-[40%]" />
+                  <input type="text" placeholder="180" className="border-none outline-none w-[40%]" />
                 </div>
               </div>
             </div>
