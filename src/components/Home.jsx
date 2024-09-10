@@ -34,7 +34,7 @@ function Catalog() {
           }));
 
         // setProducts(formattedData);
-        // setFilteredProducts(formattedData); // Инициализируем отфильтрованные данные
+        setFilteredProducts(formattedData); // Инициализируем отфильтрованные данные
         console.log(response.data)
       })
       .catch(error => {
