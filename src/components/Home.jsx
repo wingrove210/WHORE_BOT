@@ -40,7 +40,7 @@ function Catalog() {
       .catch(error => {
         console.error('Ошибка при загрузке данных:', error);
       });
-  }, [products]);
+  }, []);
   console.log(products)
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
