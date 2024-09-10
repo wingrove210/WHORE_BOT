@@ -11,37 +11,37 @@ function Catalog() {
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [city, setCity] = useState(null);
   const [selectedCity, setSelectedCity] = useState('');
-  useEffect(() => {
-    setProducts(data); // Установите данные из JSON-файла в состояние
-  }, []);
   // useEffect(() => {
-  //   axios.get('https://backend.skyrodev.ru/model/')
-  //     .then(response => {
-  //       // Преобразуем данные, чтобы использовать их в компоненте
-  //       const formattedData = response.data
-  //         .filter(item => item.Model && item.Model.id && item.Model.img && item.Model.img.length > 0) // Фильтруем некорректные данные
-  //         .map(item => ({
-  //           id: item.Model.id,
-  //           name: item.Model.name,
-  //           city: item.Model.city || 'Неизвестный город',
-  //           height: item.Model.height || 'Неизвестно',
-  //           weight: item.Model.weight || 'Неизвестно',
-  //           chest: item.Model.chest || 'Неизвестно',
-  //           age: item.Model.age || 'Неизвестно',
-  //           photo: item.Model.img[0], // Берем первое изображение
-  //           price1Hour: item.Model.day_1_hour || 'Не указано',
-  //           price2Hours: item.Model.day_2_hour || 'Не указано'
-  //         }));
+  //   setProducts(data); // Установите данные из JSON-файла в состояние
+  // }, []);
+  useEffect(() => {
+    axios.get('https://backend.skyrodev.ru/model/')
+      .then(response => {
+        // Преобразуем данные, чтобы использовать их в компоненте
+        const formattedData = response.data
+          .filter(item => item.Model && item.Model.id && item.Model.img && item.Model.img.length > 0) // Фильтруем некорректные данные
+          .map(item => ({
+            id: item.Model.id,
+            name: item.Model.name,
+            city: item.Model.city || 'Неизвестный город',
+            height: item.Model.height || 'Неизвестно',
+            weight: item.Model.weight || 'Неизвестно',
+            chest: item.Model.chest || 'Неизвестно',
+            age: item.Model.age || 'Неизвестно',
+            photo: item.Model.img[0], // Берем первое изображение
+            price1Hour: item.Model.day_1_hour || 'Не указано',
+            price2Hours: item.Model.day_2_hour || 'Не указано'
+          }));
 
-  //       // setProducts(formattedData);
-  //       // setFilteredProducts(formattedData); // Инициализируем отфильтрованные данные
-  //       console.log(response.data)
-  //     })
-  //     .catch(error => {
-  //       console.error('Ошибка при загрузке данных:', error);
-  //     });
-  // }, [products]);
-  // console.log(products)
+        // setProducts(formattedData);
+        // setFilteredProducts(formattedData); // Инициализируем отфильтрованные данные
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.error('Ошибка при загрузке данных:', error);
+      });
+  }, [products]);
+  console.log(products)
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
