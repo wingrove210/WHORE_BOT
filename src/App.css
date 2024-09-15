@@ -8,10 +8,6 @@
 body{
     background-color: #242424;
 }
-.logo-text {
-    color: white;
-    text-shadow: #FF5A81 1px 1px 40px;
-}
 .button-arrow-top{
     z-index: 0;
 }

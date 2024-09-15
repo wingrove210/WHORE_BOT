@@ -3,3 +3,12 @@
     src: url('./Hero-Bold.woff') format('woff')
   }
 
+  @font-face {
+    font-family: 'Hero_Thin';
+    src: url('./Hero-Light.woff') format('woff')
+  }
+  @font-face {
+    font-family: 'Hero_Regular';
+    src: url('./Hero-Regular_1.woff') format('woff')
+  }
+

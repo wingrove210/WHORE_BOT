@@ -5,6 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilters, clearFilters } from '../redux/filterSlice';
+import logo from '../img/LOGO§.png'
 
 const BACKEND_URL = "https://backend.skyrodev.ru"
 function Header() {
@@ -68,11 +69,11 @@ function Header() {
   };
     return (
       <>
-        <div className='flex items-center justify-between w-full px-5 py-3 font-hero'>
+        <div className='flex items-end justify-between w-full px-5 py-3 font-hero'>
           <button className='py-3' onClick={handleMenuClick}>
             {menuOpen ? <RxCross1 className='text-white w-7 h-7' /> : <LuMenu className='text-white w-7 h-7' />}
           </button>
-          <h2 className='logo-text pr-1'>ANGELES</h2>
+          <img src={logo} alt="" className='w-28'/>
         </div>
         {menuOpen && (
                   <div className="px-10 py-5 absolute bg-[#242424] main-filters font-hero h-screen">

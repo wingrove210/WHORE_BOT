@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import data from '../data.json';
-import { FaRegHeart } from "react-icons/fa";
+import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, setSelectedProduct } from '../redux/productSlice';
 import { Loading } from './Loading';
 import Header from "./Header";
 import { clearFilters } from '../redux/filterSlice';
 import { setFilters } from '../redux/filterSlice';
+import Error from './Error';
 
 
 function Catalog() {
@@ -22,14 +22,13 @@ function Catalog() {
   }, [dispatch]);
 
   if (loading) return <Loading/>;
-  if (error) return <p>Ошибка: {error}</p>;
+  if (error) return <Error/>;
 
   // const handleProductClick = (product) => {
   //   dispatch(setSelectedProduct(product)); // Устанавливаем выбранный продукт
   // };
   const handleProductClick = (product) => {
     dispatch(setSelectedProduct(product)); // Устанавливаем выбранный продукт
-    // window.history.pushState({}, '', `/product/${product.id}`);
   };
   const handleClearFilters = () => {
     dispatch(clearFilters()); // Сбрасываем все фильтры
@@ -64,7 +63,7 @@ function Catalog() {
   <Header/>
   <div className='flex justify-between px-5 py-5 items-center text-white'>
     <div className='w-[10%] h-9 rounded-md bg-[#3E3E3E] border-[1px] border-[#FF5A81] flex items-center justify-center' onClick={handleClearFilters}>
-      <FaRegHeart className='text-white w-5 h-5'/>
+      <RxCross1 className='text-white w-5 h-5'/>
     </div>
     <p 
       className={`h-9 w-[28%] border-[#FF5A81] border-[1px] text-[9px] flex justify-center items-center rounded-[10px] 
@@ -91,7 +90,6 @@ function Catalog() {
       <ul className="grid grid-cols-2 gap-2 px-5">
         {filteredProducts.map(product => (
           <li key={product.id} className="">
-            {/* <Link to={`/product/${product.id}`} onClick={() => handleProductClick(product)}> */}
             <Link to={`/product/${product.id}`} onClick={() => handleProductClick(product)}>
               <div className="relative">
                 <div className="relative">

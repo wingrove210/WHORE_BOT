@@ -84,6 +84,10 @@ function Product() {
     }
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   const handleTariffClick = (tariff, period) => {
     setSelectedTariffs((prevTariffs) => {
       if (period === 'day') {
@@ -115,9 +119,9 @@ function Product() {
           <Slider product={product} />
           <div className='pt-5 px-5'>
             <div>
-              <p>{product.name}</p>
-              <p>{product.age} ЛЕТ</p>
-              <p>{product.city}</p>
+              <p className='text-3xl font-hero_regular font-normal uppercase'>{product.name}</p>
+              <p className='text-2xl font-hero_thin font-light font-normal'>{product.age} ЛЕТ</p>
+              <p className='text-lg uppercase font-hero_thin font-normal'>{product.city}</p>
             </div>
             <div className='flex justify-between items-center mt-5 w-full'>
               <button className='border-[1px] border-[#FF5A81] w-[77%] bg-[#3E3E3E] rounded-[10px] text-xl h-[54px]' onClick={handleOrderClick}>
@@ -129,28 +133,26 @@ function Product() {
             </div>
             <div className='mt-5'>
               <h1 className='text-3xl text-bold'>ТАРИФ</h1>
-              <h2 className='py-2 pl-2 mt-3'>ДЕНЬ</h2>
+              <h2 className='py-2 pl-2 mt-3 font-hero_thin font-light uppercase text-lg'>ДЕНЬ</h2>
               <div className='flex justify-between w-full'>
-                <div className={`bg-[#3E3E3E] rounded-xl py-2 px-4 w-[48%] ${selectedTariffs.day === '1 час' ? 'border-2 border-[#FF5A81]' : ''
+                <div className={`bg-[#3E3E3E] rounded-xl pb-4 pt-2 px-4 w-[48%] ${selectedTariffs.day === '1 час' ? 'border-2 border-[#FF5A81]' : ''
                   }`} onClick={() => handleTariffClick('1 час', 'day')}>
                   <div className='flex flex-col gap-2 justify-center'>
                     <div className='flex justify-between items-center'>
                       <img src={sun} alt="" />
                       <h1 className='font-bold text-2xl'>1 час</h1>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between pt-3'>
                       <div>
-                        <p>У меня</p>
-                        <p>У тебя</p>
+                        <p className='font-hero_thin font-light uppercase'>У меня</p>
                       </div>
                       <div>
-                        <p className=''>{product.price1Hour} ₽</p>
-                        <p className=''>40.000 ₽</p>
+                        <p className='font-hero_thin font-light uppercase'>{product.price1Hour.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className={`bg-[#3E3E3E] rounded-xl py-2 px-4 w-[48%] ${selectedTariffs.day === '2 часа' ? 'border-2 border-[#FF5A81]' : ''
+                <div className={`bg-[#3E3E3E] rounded-xl pb-4 pt-2 px-4 w-[48%] ${selectedTariffs.day === '2 часа' ? 'border-2 border-[#FF5A81]' : ''
                   }`}
                   onClick={() => handleTariffClick('2 часа', 'day')}>
                   <div className='flex flex-col gap-2 justify-center'>
@@ -158,22 +160,20 @@ function Product() {
                       <img src={sun} alt="" />
                       <h1 className='font-bold text-2xl'>2 часа</h1>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between pt-3'>
                       <div>
-                        <p>У меня</p>
-                        <p>У тебя</p>
+                        <p className='font-hero_thin font-light uppercase'>У меня</p>
                       </div>
                       <div>
-                        <p className=''>{product.price2Hours} ₽</p>
-                        <p className=''>40.000 ₽</p>
+                        <p className='font-hero_thin font-light uppercase'>{product.price2Hours.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <h2 className='py-2 pl-2'>НОЧЬ</h2>
+              <h2 className='py-1 pl-2 mt-3 font-hero_thin font-light uppercase text-lg'>НОЧЬ</h2>
               <div className='flex justify-between w-full'>
-                <div className={`bg-[#3E3E3E] rounded-xl py-2 px-4 w-[48%] ${selectedTariffs.night === '1 час' ? 'border-2 border-[#FF5A81]' : ''
+                <div className={`bg-[#3E3E3E] rounded-xl pb-4 pt-2 px-4 w-[48%] ${selectedTariffs.night === '1 час' ? 'border-2 border-[#FF5A81]' : ''
                   }`}
                   onClick={() => handleTariffClick('1 час', 'night')}>
                   <div className='flex flex-col gap-2 justify-center'>
@@ -181,19 +181,17 @@ function Product() {
                       <img src={moon} alt="" />
                       <h1 className='font-bold text-2xl'>1 час</h1>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between pt-3'>
                       <div>
-                        <p>У меня</p>
-                        <p>У тебя</p>
+                        <p className='font-hero_thin font-light uppercase'>У меня</p>
                       </div>
                       <div>
-                        <p className=''>{product.price1HourNight} ₽</p>
-                        <p className=''>40.000 ₽</p>
+                        <p className='font-hero_thin font-light uppercase'>{product.price1HourNight.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className={`bg-[#3E3E3E] rounded-xl py-2 px-4 w-[48%] ${selectedTariffs.night === 'ночь' ? 'border-2 border-[#FF5A81]' : ''
+                <div className={`bg-[#3E3E3E] rounded-xl pb-4 pt-2 px-4 w-[48%] ${selectedTariffs.night === 'ночь' ? 'border-2 border-[#FF5A81]' : ''
                   }`}
                   onClick={() => handleTariffClick('ночь', 'night')}>
                   <div className='flex flex-col gap-2 justify-center'>
@@ -201,14 +199,12 @@ function Product() {
                       <img src={moon} alt="" />
                       <h1 className='font-bold text-2xl'>ночь</h1>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between pt-3'>
                       <div>
-                        <p>У меня</p>
-                        <p>У тебя</p>
+                        <p className='font-hero_thin font-light uppercase'>У меня</p>
                       </div>
                       <div>
-                        <p className=''>{product.priceAllNight} ₽</p>
-                        <p className=''>40.000 ₽</p>
+                        <p className='font-hero_thin font-light uppercase'>{product.priceAllNight.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
