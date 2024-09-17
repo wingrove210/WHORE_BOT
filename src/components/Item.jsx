@@ -214,18 +214,45 @@ function Product() {
           </div>
           {/* Детальная информация */}
           <div className='mt-5 px-5 py-5 bg-[#3E3E3E]'>
-            <h2>Детальная информация</h2>
-            <div className='mt-5 flex flex-col gap-3'>
-              <p>Возраст: {product.age} лет</p>
-              <p>Грудь: {product.chest}</p>
-              <p>Вес: {product.weight} кг</p>
-              <p>Рост: {product.height} см</p>
-              <p>Размер обуви: {product.shoes}</p>
-              <p>Цвет волос: {product.hair}</p>
-              <p>Внешность: {product.appereance}</p>
-              <p>Город: {product.city}</p>
-            </div>
-          </div>
+  <h2 className='text-white text-2xl mb-5'>Детальная информация</h2>
+  <div className='mb-5'>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Возраст:</p>
+      <p className='text-white'>{product.age} лет</p>
+    </div>
+  </div>
+  <div className='mt-5 flex flex-col gap-3'>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Грудь:</p>
+      <p className='text-white'>{product.chest}</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Вес:</p>
+      <p className='text-white'>{product.weight} кг</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Рост:</p>
+      <p className='text-white'>{product.height} см</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Размер обуви:</p>
+      <p className='text-white'>{product.shoes}</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Цвет волос:</p>
+      <p className='text-white'>{product.hair}</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Внешность:</p>
+      <p className='text-white'>{product.appereance}</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300'>Город:</p>
+      <p className='text-white'>{product.city}</p>
+    </div>
+  </div>
+</div>
+
         </div>
       )}
       {errorMessage && (

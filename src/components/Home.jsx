@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, setSelectedProduct } from '../redux/productSlice';
-import { Loading } from './Loading';
+import AnimatedSilhouette  from './Loading';
 import Header from "./Header";
 import { clearFilters } from '../redux/filterSlice';
 import { setFilters } from '../redux/filterSlice';
@@ -21,7 +21,7 @@ function Catalog() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (loading) return <Loading/>;
+  if (loading) return <AnimatedSilhouette/>;
   if (error) return <Error/>;
 
   // const handleProductClick = (product) => {
