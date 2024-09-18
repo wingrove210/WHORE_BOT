@@ -6,7 +6,7 @@ import Main from './components/Main';
 import Error from './components/Error';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import Loa
+import 
 
 
 function App() {
