@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Loading.css';
-import loading from '../img/loading.gif'
+// import loading from '../img/loading.gif'
 
 
 const AnimatedSilhouette = () => {
