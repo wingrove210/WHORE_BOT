@@ -5,16 +5,18 @@ import Product from './components/Item';
 import Main from './components/Main';
 import Error from './components/Error';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 
 function App() {
+  const { error } = useSelector((state) => state.products);
   
   return (
     <BrowserRouter>
       <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/product/:id" element={<Product />} /> 
-          <Route path="*" element={<Error />} />  
+          <Route path="*" element={<Error statusCode={error?.statusCode} />} /> 
       </Routes>
     </BrowserRouter>
   );

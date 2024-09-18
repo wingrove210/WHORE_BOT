@@ -48,7 +48,8 @@ if (loading) {
 }
 
   if (loading) return <AnimatedSilhouette/>;
-  if (error) return <Error/>;
+  if (error && error.statusCode) return <Error statusCode={error?.statusCode} />;
+  // if (error && error.statusCode) return console.log(error.statusCode);
 
   // const handleProductClick = (product) => {
   //   dispatch(setSelectedProduct(product)); // Устанавливаем выбранный продукт

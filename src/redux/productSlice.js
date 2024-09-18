@@ -26,10 +26,16 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async (_
       priceAllNight: item.Model.night_all || 'Не указано'
     }));
   return formattedData;
-  }catch(error){
-    return rejectWithValue(error.response.data);
+} catch (error) {
+  console.log(error);
+  console.log(rejectWithValue(error.response?.data?.message || 'Произошла ошибка'))
+  return rejectWithValue({
+    message: error.response?.data?.message || 'Произошла ошибка',
+    statusCode: error.response?.status || 500,
   }
-});
+);
+}
+  });
 
 const productSlice = createSlice({
   name: 'products',
