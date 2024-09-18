@@ -114,40 +114,41 @@ function Product() {
         <div className='text-white pb-10'>
           <Link className='absolute top-2 left-3 bg-[#3E3E3E] px-4 py-2 rounded-[9px] border-2 border-[#FF5A81] flex gap-4 z-20' to='/'>
             <img src={backarrow} alt="" />
-            <span>НАЗАД</span>
+            <span className='font-hero_thin'>НАЗАД</span>
           </Link>
           <Slider product={product} />
           <div className='pt-5 px-5'>
             <div>
-              <p className='text-3xl font-hero_regular font-normal uppercase'>{product.name}</p>
-              <p className='text-2xl font-hero_thin font-light font-normal'>{product.age} ЛЕТ</p>
-              <p className='text-lg uppercase font-hero_thin font-normal'>{product.city}</p>
+              <p className='text-3xl font-hero_regular font-light uppercase'>{product.name}</p>
+              <p className='text-lg font-hero_regular font-light font-normal'>{product.age} ЛЕТ</p>
+              <p className='text-xs uppercase font-hero_thin font-normal'>{product.city}</p>
             </div>
             <div className='flex justify-between items-center mt-5 w-full'>
-              <button className='border-[1px] border-[#FF5A81] w-[77%] bg-[#3E3E3E] rounded-[10px] text-xl h-[54px]' onClick={handleOrderClick}>
+              <button className='border-[1px] border-[#FF5A81] w-[77%] bg-[#3E3E3E] rounded-[10px] text-xl h-[54px] font-hero_regular font-light' onClick={handleOrderClick}>
                 ЗАКАЗАТЬ
               </button>
-              <button className='border-[1px] border-[#FF5A81] h-[54px] rounded-[10px] w-[20%]'>
+              {/* <button onClick={() => window.Telegram.WebApp.close()}>Закрыть</button> */}
+              <a href='https://web.telegram.org/a/#6304202602' target='_blank' rel='noopener noreferrer' className='border-[1px] border-[#FF5A81] h-[54px] rounded-[10px] w-[20%] py-2'>
                 <FaTelegramPlane className='text-[#FF5A81] w-9 h-9 mx-auto' />
-              </button>
+              </a>
             </div>
             <div className='mt-5'>
               <h1 className='text-3xl text-bold'>ТАРИФ</h1>
               <h2 className='py-2 pl-2 mt-3 font-hero_thin font-light uppercase text-lg'>ДЕНЬ</h2>
               <div className='flex justify-between w-full'>
-                <div className={`bg-[#3E3E3E] rounded-xl pb-4 pt-2 px-4 w-[48%] ${selectedTariffs.day === '1 час' ? 'border-2 border-[#FF5A81]' : ''
+                <div className={`bg-[#3E3E3E] rounded-xl pb-4 pt-2 px-4 w-[48%] box-border ${selectedTariffs.day === '1 час' ? 'border-2 border-[#FF5A81]' : ''
                   }`} onClick={() => handleTariffClick('1 час', 'day')}>
                   <div className='flex flex-col gap-2 justify-center'>
                     <div className='flex justify-between items-center'>
                       <img src={sun} alt="" />
-                      <h1 className='font-bold text-2xl'>1 час</h1>
+                      <h1 className='font-bold text-base'>1 час</h1>
                     </div>
-                    <div className='flex justify-between pt-3'>
+                    <div className='flex justify-between pt-3 items-center'>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>У меня</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>У меня</p>
                       </div>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>{product.price1Hour.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>{product.price1Hour.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
@@ -158,14 +159,14 @@ function Product() {
                   <div className='flex flex-col gap-2 justify-center'>
                     <div className='flex justify-between items-center'>
                       <img src={sun} alt="" />
-                      <h1 className='font-bold text-2xl'>2 часа</h1>
+                      <h1 className='font-bold text-base'>2 часа</h1>
                     </div>
                     <div className='flex justify-between pt-3'>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>У меня</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>У меня</p>
                       </div>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>{product.price2Hours.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>{product.price2Hours.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
@@ -179,14 +180,14 @@ function Product() {
                   <div className='flex flex-col gap-2 justify-center'>
                     <div className='flex justify-between items-center'>
                       <img src={moon} alt="" />
-                      <h1 className='font-bold text-2xl'>1 час</h1>
+                      <h1 className='font-bold text-base'>1 час</h1>
                     </div>
                     <div className='flex justify-between pt-3'>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>У меня</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>У меня</p>
                       </div>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>{product.price1HourNight.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>{product.price1HourNight.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
@@ -197,14 +198,14 @@ function Product() {
                   <div className='flex flex-col gap-2 justify-center'>
                     <div className='flex justify-between items-center'>
                       <img src={moon} alt="" />
-                      <h1 className='font-bold text-2xl'>ночь</h1>
+                      <h1 className='font-bold text-base'>ALL NIGHT</h1>
                     </div>
                     <div className='flex justify-between pt-3'>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>У меня</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>У меня</p>
                       </div>
                       <div>
-                        <p className='font-hero_thin font-light uppercase'>{product.priceAllNight.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
+                        <p className='font-hero_thin font-light uppercase text-xs'>{product.priceAllNight.toLocaleString('ru-RU').replace(/\s+/g, '.')} ₽</p>
                       </div>
                     </div>
                   </div>
@@ -215,40 +216,40 @@ function Product() {
           {/* Детальная информация */}
           <div className='mt-5 px-5 py-5 bg-[#3E3E3E]'>
   <h2 className='text-white text-2xl mb-5'>Детальная информация</h2>
-  <div className='mb-5'>
-    <div className='flex justify-between'>
-      <p className='text-gray-300'>Возраст:</p>
-      <p className='text-white'>{product.age} лет</p>
-    </div>
+  <div className=''>
   </div>
-  <div className='mt-5 flex flex-col gap-3'>
+  <div className='flex flex-col gap-3'>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Грудь:</p>
-      <p className='text-white'>{product.chest}</p>
+      <p className='text-gray-300 font-hero_regular'>Возраст:</p>
+      <p className='text-white font-hero_regular'>{product.age} лет</p>
     </div>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Вес:</p>
-      <p className='text-white'>{product.weight} кг</p>
+      <p className='text-gray-300 font-hero_regular'>Грудь:</p>
+      <p className='text-white font-hero_regular'>{product.chest}</p>
     </div>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Рост:</p>
-      <p className='text-white'>{product.height} см</p>
+      <p className='text-gray-300 font-hero_regular'>Вес:</p>
+      <p className='text-white font-hero_regular'>{product.weight} кг</p>
     </div>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Размер обуви:</p>
-      <p className='text-white'>{product.shoes}</p>
+      <p className='text-gray-300 font-hero_regular'>Рост:</p>
+      <p className='text-white font-hero_regular'>{product.height} см</p>
     </div>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Цвет волос:</p>
-      <p className='text-white'>{product.hair}</p>
+      <p className='text-gray-300 font-hero_regular'>Размер обуви:</p>
+      <p className='text-white font-hero_regular'>{product.shoes}</p>
     </div>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Внешность:</p>
-      <p className='text-white'>{product.appereance}</p>
+      <p className='text-gray-300 font-hero_regular'>Цвет волос:</p>
+      <p className='text-white font-hero_regular'>{product.hair}</p>
     </div>
     <div className='flex justify-between'>
-      <p className='text-gray-300'>Город:</p>
-      <p className='text-white'>{product.city}</p>
+      <p className='text-gray-300 font-hero_regular'>Внешность:</p>
+      <p className='text-white font-hero_regular'>{product.appereance}</p>
+    </div>
+    <div className='flex justify-between'>
+      <p className='text-gray-300 font-hero_regular'>Город:</p>
+      <p className='text-white font-hero_regular'>{product.city}</p>
     </div>
   </div>
 </div>

@@ -12,14 +12,40 @@ import Error from './Error';
 
 function Catalog() {
   const dispatch = useDispatch();
-  const { products, loading, error } = useSelector((state) => state.products);
+  // const { products, loading, error } = useSelector((state) => state.products);
+  const { products, error } = useSelector((state) => state.products);
   const filters = useSelector((state) => state.filters);
   const [selectedCity, setSelectedCity] = useState(filters.city || '');
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      dispatch(fetchProducts());
+    }, 3000); // delay by at least 5 seconds
+  
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [dispatch]);
+
+useEffect(() => {
+  const timeoutId = setTimeout(() => {
+    dispatch(fetchProducts());
+    setLoading(false);
+  }, 5000); // delay by at least 5 seconds
+
+  return () => {
+    clearTimeout(timeoutId);
+  };
+}, [dispatch]);
+
+if (loading) {
+  return <AnimatedSilhouette />;
+}
 
   if (loading) return <AnimatedSilhouette/>;
   if (error) return <Error/>;
@@ -106,9 +132,9 @@ function Catalog() {
                   </div>
                 </div>
                 <div className='text-white mt-3'>
-                  <h2 className="text-[14px]">{product.name}</h2>
-                  <h2 className='text-[14px]'>{product.age} ЛЕТ</h2>
-                  <p className="text-[14px]">{product.city}</p>
+                  <h2 className="text-[14px] uppercase font-hero_regular">{product.name}</h2>
+                  <h2 className='text-[14px] font-hero_regular'>{product.age} ЛЕТ</h2>
+                  <p className="text-[14px] uppercase font-hero_regular">{product.city}</p>
                 </div>
                 <div className='flex flex-wrap gap-2 text-white mt-2'>
                   <p className='bg-[#3E3E3E] w-[74px] py-1 border-[1px] border-[#FF5A81] text-[12px] text-center rounded-lg'>РОСТ {product.height}</p>
