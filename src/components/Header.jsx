@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setFilters, clearFilters } from '../redux/filterSlice';
 import logo from '../img/LOGO§.png'
 import './menu_button.css'
+import { Link } from 'react-router-dom';
 
 const BACKEND_URL = "https://backend.skyrodev.ru"
 function Header() {
@@ -77,7 +78,7 @@ function Header() {
                   <path className="line" d="M7 16 27 16"></path>
                 </svg>
                 </label>
-                <button className={menuOpen ? 'opacity-100 border-2 border-[#FF5A81] px-2 rounded-md py-1 text-white font-hero_thin uppercase text-sm': 'opacity-0'}>Добавить Анкету</button>
+                <a href="/form" className={menuOpen ? 'opacity-100 border-2 border-[#FF5A81] px-2 rounded-md py-1 text-white font-hero_thin uppercase text-sm': 'opacity-0'}>Добавить Анкету</a>
           <img src={logo} alt="" className="w-28" />
         </div>
         {(

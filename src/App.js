@@ -7,6 +7,9 @@ import Error from './components/Error';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AnimatedSilhouette from './components/Loading';
+import Form from './components/Form';
+import Check from './components/Check';
+import SuccessSending from './components/SuccessSending';
 
 function App() {
   const { error } = useSelector((state) => state.products);
@@ -18,7 +21,9 @@ function App() {
           <Route path='/main' element={<Main/>}/>
           <Route path="/product/:id" element={<Product />} /> 
           <Route path="*" element={<Error statusCode={error?.statusCode} />} /> 
-          <Route path='/form' element=
+          <Route path='/form' element={<Form/>}/>
+          <Route path='/check' element={<Check/>}/>
+          <Route path='/success-sending' element={<SuccessSending/>}/>
       </Routes>
     </BrowserRouter>
   );
