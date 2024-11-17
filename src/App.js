@@ -6,8 +6,7 @@ import Main from './components/Main';
 import Error from './components/Error';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import 
-
+import AnimatedSilhouette from './components/Loading';
 
 function App() {
   const { error } = useSelector((state) => state.products);
@@ -15,9 +14,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<AnimatedSilhouette/>} />
+          <Route path='/main' element={<Main/>}/>
           <Route path="/product/:id" element={<Product />} /> 
           <Route path="*" element={<Error statusCode={error?.statusCode} />} /> 
+          <Route path='/form' element=
       </Routes>
     </BrowserRouter>
   );

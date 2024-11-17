@@ -7,19 +7,29 @@ import moon from '../img/moon.png';
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { useSelector } from 'react-redux';
 
+
 const Slider = ({ product }) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const touchStartX = useRef(0); // Хранение координаты начала свайпа
-  const touchEndX = useRef(0); // Хранение координаты конца свайпа
+  const [isFading, setIsFading] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const handleNext = () => {
-    setCurrentImage((prev) => (prev + 1) % product.photo.length);
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentImage((prev) => (prev + 1) % product.photo.length);
+      setIsFading(false);
+    }, 300); // Длительность анимации
   };
 
   const handlePrev = () => {
-    setCurrentImage((prev) =>
-      prev === 0 ? product.photo.length - 1 : prev - 1
-    );
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentImage((prev) =>
+        prev === 0 ? product.photo.length - 1 : prev - 1
+      );
+      setIsFading(false);
+    }, 300); // Длительность анимации
   };
 
   const handleTouchStart = (e) => {
@@ -35,31 +45,43 @@ const Slider = ({ product }) => {
     if (touchStartX.current - touchEndX.current > 50) {
       handleNext();
     }
-
     if (touchStartX.current - touchEndX.current < -50) {
       handlePrev();
     }
   };
 
   return (
-    <div className="slider" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+    <div
+      className="slider"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="relative w-full">
         <img
           src={product.photo[currentImage]}
           alt="Product"
-          className="w-full h-[60vh] object-cover"
+          className={`w-full h-[60vh] object-cover transition-opacity duration-300 ${
+            isFading ? 'opacity-0' : 'opacity-100'
+          }`}
           key={currentImage}
         />
-        <button onClick={handlePrev} className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white px-2 py-1">
+        <button
+          onClick={handlePrev}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white px-2 py-1"
+        >
           <MdArrowBackIosNew className="text-[#FF5A81] w-7 h-20" />
         </button>
-        <button onClick={handleNext} className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white px-2 py-1">
+        <button
+          onClick={handleNext}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white px-2 py-1"
+        >
           <MdArrowForwardIos className="text-[#FF5A81] w-7 h-20" />
         </button>
       </div>
     </div>
   );
 };
+
 
 function Product() {
   const navigate = useNavigate();

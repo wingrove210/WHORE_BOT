@@ -1,32 +1,65 @@
+
+
+
 [
-    {
+  {
+    "Model": {
       "id": 1,
-      "name": "РУСЛАНА",
-      "city": "ЮЖНО-САХАЛИНСК",
-      "photo": ["/img/Girl2.jpg", "/img/Girl3.jpg", "/img/Girl4.jpeg"],
-      "height": 175,
-      "weight": 65,
-      "chest": 90,
-      "age": 18
-    },
-    {
+      "name": "Модель 1",
+      "city": "Москва",
+      "height": "180",
+      "weight": "70",
+      "chest": "1",
+      "age": "25",
+      "img": ["https://firebasestorage.googleapis.com/v0/b/freestylebot-ceab7.appspot.com/o/Americano.jpg?alt=media&token=a7583076-1f2a-4ab2-9ac8-13fc9ec31a5b", "https://firebasestorage.googleapis.com/v0/b/freestylebot-ceab7.appspot.com/o/Barbeque_Sous.jpg?alt=media&token=1fb134f2-1314-43cc-a02b-76b30dd4df7e"],
+      "shoes": "42",
+      "cloth": "Мужская одежда",
+      "hair": "Каштановые",
+      "appereance": "Спортивное",
+      "day_1_hour": "1000",
+      "day_2_hour": "1800",
+      "night_1_hour": "1500",
+      "night_all": "5000"
+    }
+  },
+  {
+    "Model": {
       "id": 2,
-      "name": "РУСЛАНА",
-      "city": "ВЛАДИВОСТОК",
-      "photo": ["/img/Girl3.jpg", "/img/Girl2.jpg"],
-      "height": 180,
-      "weight": 70,
-      "chest": 95,
-      "age": 40
-    },
-    {
-        "id": 3,
-        "name": "РЕГИНА",
-        "city": "ХАБАРОВСК",
-        "photo": ["/img/Girl4.jpeg", "/img/Girl3.jpg", "/img/Girl2.jpg"],
-        "height": 180,
-        "weight": 70,
-        "chest": 95,
-        "age": 30
-      }
-  ]
+      "name": "Модель 2",
+      "city": "Санкт-Петербург",
+      "height": "170",
+      "weight": "60",
+      "chest": "2",
+      "age": "22",
+      "img": ["https://firebasestorage.googleapis.com/v0/b/freestylebot-ceab7.appspot.com/o/Americano.jpg?alt=media&token=a7583076-1f2a-4ab2-9ac8-13fc9ec31a5b", "https://firebasestorage.googleapis.com/v0/b/freestylebot-ceab7.appspot.com/o/Barbeque_Sous.jpg?alt=media&token=1fb134f2-1314-43cc-a02b-76b30dd4df7e"],
+      "shoes": "39",
+      "cloth": "Женская одежда",
+      "hair": "Блондинка",
+      "appereance": "Элегантное",
+      "day_1_hour": "1200",
+      "day_2_hour": "2200",
+      "night_1_hour": "1800",
+      "night_all": "6000"
+    }
+  },
+  {
+    "Model": {
+      "id": 3,
+      "name": "Модель 2",
+      "city": "Санкт-Петербург",
+      "height": "170",
+      "weight": "90",
+      "chest": "3",
+      "age": "18",
+      "img": ["https://firebasestorage.googleapis.com/v0/b/freestylebot-ceab7.appspot.com/o/Americano.jpg?alt=media&token=a7583076-1f2a-4ab2-9ac8-13fc9ec31a5b", "https://firebasestorage.googleapis.com/v0/b/freestylebot-ceab7.appspot.com/o/Barbeque_Sous.jpg?alt=media&token=1fb134f2-1314-43cc-a02b-76b30dd4df7e"],
+      "shoes": "39",
+      "cloth": "Женская одежда",
+      "hair": "Блондинка",
+      "appereance": "Элегантное",
+      "day_1_hour": "1200",
+      "day_2_hour": "2200",
+      "night_1_hour": "1800",
+      "night_all": "6000"
+    }
+  }
+]
