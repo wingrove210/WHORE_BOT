@@ -92,8 +92,8 @@ function Header() {
                 onChange={(e) => setSelectedCity(e.target.value)}
               >
                 <option value="Москва">Выберете Город</option>
-                <option value="ЮЖНО-САХАЛИНСК">МОСКВА</option>
-                <option value="ВЛАДИВОСТОК">САНКТ-ПЕТЕРБУРГ</option>
+                <option value="МОСКВА">МОСКВА</option>
+                <option value="САНКТ-ПЕТЕРБУРГ">САНКТ-ПЕТЕРБУРГ</option>
               </select>
             </div>
             <div className="mt-2">

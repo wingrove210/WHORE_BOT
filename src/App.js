@@ -10,6 +10,7 @@ import AnimatedSilhouette from './components/Loading';
 import Form from './components/Form';
 import Check from './components/Check';
 import SuccessSending from './components/SuccessSending';
+import SuccessPayment from './components/Success_Payment';
 
 function App() {
   const { error } = useSelector((state) => state.products);
@@ -24,6 +25,7 @@ function App() {
           <Route path='/form' element={<Form/>}/>
           <Route path='/check' element={<Check/>}/>
           <Route path='/success-sending' element={<SuccessSending/>}/>
+          <Route path='/success-payment' element={<SuccessPayment/>}/>
       </Routes>
     </BrowserRouter>
   );
