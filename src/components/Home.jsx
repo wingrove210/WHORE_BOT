@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { RxCross1 } from 'react-icons/rx';
+import { IoIosArrowUp } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, setSelectedProduct } from '../redux/productSlice';
 import { clearFilters, setFilters } from '../redux/filterSlice';
@@ -135,13 +136,13 @@ className="h-[300px]"
 ))}
 </Swiper>
 
-                <div className="absolute bottom-0 left-0 p-4 text-white">
+                <div className="absolute bottom-0 left-0 p-4 text-white z-10">
                   <h2 className="text-[10px] bg-gray-900 bg-opacity-70 w-20 rounded-lg text-center py-1">1 час<span className='text-[#FF5A81] pl-2'>{formatPrice(product.price1Hour)}</span></h2>
                   <p className="text-[10px] bg-gray-900 bg-opacity-70 w-20 rounded-lg mt-[2px] text-center py-1">2 часа<span className='text-[#FF5A81] pl-2'>{formatPrice(product.price2Hours)}</span></p>
                 </div>
               </div>
               <div className='text-white mt-3'>
-                <h2 className="text-[14px] uppercase font-hero_regular">{product.name}</h2>
+                <h2 className="text-[16px] uppercase font-hero_bold">{product.name}</h2>
                 <h2 className='text-[14px] font-hero_regular'>{product.age} ЛЕТ</h2>
                 <p className="text-[14px] uppercase font-hero_regular">{product.city}</p>
               </div>
@@ -155,6 +156,9 @@ className="h-[300px]"
         </li>
         ))}
       </ul>
+      <button className='bg-[#3E3E3E] w-12 h-12 rounded-full fixed z-10 right-3 border-2 border-[#FF5A81] bottom-4'>
+          <IoIosArrowUp  className='text-[#FF5A81] w-11 h-11'/>
+      </button>
     </div>
   );
 }

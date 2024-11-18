@@ -69,7 +69,7 @@ function Header() {
       <>
         <div className="flex items-center justify-between w-full px-5 py-3 font-hero">
               <label className="hamburger">
-                <input type="checkbox"  onClick={() => setMenuOpen(!menuOpen)}/>
+                <input type="checkbox" onClick={() => setMenuOpen(!menuOpen)} checked={menuOpen}/>
                 <svg viewBox="0 0 32 32">
                   <path
                     className="line line-top-bottom"

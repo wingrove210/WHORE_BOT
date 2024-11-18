@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../img/LOGO§.png";
+import axios from "axios";
 
 function Form() {
   const navigate = useNavigate();
@@ -22,6 +23,35 @@ function Form() {
 
   const isNumeric = (value) => /^\d+$/.test(value); // Проверка на числа
 
+  const sendToTelegram = async (data) => {
+    const token = "7933769477:AAF3_dmy6dQPq0jkGrZR9jArhLndVw8tVos"; // Замените на ваш токен бота
+    const chatId = "1372814991"; // Замените на ваш ID чата
+
+    const message = `
+      Новая анкета:
+      Рост: ${data.height} см
+      Вес: ${data.weight} кг
+      Возраст: ${data.age} лет
+      Размер груди: ${data.bustSize}
+      Размер одежды: ${data.clothingSize}
+      Размер обуви: ${data.shoeSize}
+      Telegram: ${data.telegram}
+    `;
+
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
+      message
+    )}`;
+
+    try {
+      await axios.get(url);
+      alert("Данные успешно отправлены в Telegram!");
+      navigate("/check"); // Перенаправляем на главную страницу
+    } catch (error) {
+      console.error("Ошибка при отправке в Telegram:", error);
+      alert("Не удалось отправить данные в Telegram.");
+    }
+  };
+
   const handleSubmit = () => {
     const { height, weight, age, bustSize, clothingSize, shoeSize, telegram } = formData;
 
@@ -35,7 +65,8 @@ function Form() {
       isNumeric(shoeSize) &&
       telegram.trim() !== ""
     ) {
-      navigate("/check"); // Перенаправляем на главную страницу
+      // Отправляем данные в Telegram
+      sendToTelegram(formData);
     } else {
       alert("Пожалуйста, заполните все поля корректно. Все поля (кроме Telegram) должны содержать только числа.");
     }

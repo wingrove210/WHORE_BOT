@@ -20,10 +20,10 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async (_
       cloth: item.Model.cloth || 'Неизвестно',
       hair: item.Model.hair || 'Неизвестно',
       appereance: item.Model.appereance || 'Неизвестно',
-      price1Hour: item.Model.day_1_hour || 'Не указано',
-      price2Hours: item.Model.day_2_hour || 'Не указано',
-      price1HourNight: item.Model.night_1_hour || 'Не указано',
-      priceAllNight: item.Model.night_all || 'Не указано'
+      price1Hour: item.Model.day_1_hour || '--',
+      price2Hours: item.Model.day_2_hour || '--',
+      price1HourNight: item.Model.night_1_hour || '--',
+      priceAllNight: item.Model.night_all || '--'
     }));
   return formattedData;
 } catch (error) {
