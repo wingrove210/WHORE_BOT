@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Loading.css';
-import loading from '../img/loading.gif'
 import './svg.css'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -33,7 +32,7 @@ const AnimatedSilhouette = () => {
     <div className='flex justify-center items-center h-screen'>
       <div className="Loader">
         {/* <img src={loading} alt="" className='w-1/2 h-1/2 rounded-full' /> */}
-        <svg className={active ? "active" : ""} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" viewBox="0 0 1024 1024" enable-background="new 0 0 1024 1024" height="1024">
+        <svg className={active ? "active" : ""} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" viewBox="0 0 1024 1024" enableBackground="new 0 0 1024 1024" height="1024">
 <path fill="#ffffff" opacity="1.000000" stroke="none" d="
 M509.874084,269.703125 
 	C505.667267,272.561127 505.580200,276.995270 504.397675,280.916199 

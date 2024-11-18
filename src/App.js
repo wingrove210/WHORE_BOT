@@ -14,6 +14,28 @@ import SuccessPayment from './components/Success_Payment';
 
 function App() {
   const { error } = useSelector((state) => state.products);
+
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      const webApp = window.Telegram.WebApp;
+
+      // Инициализируем WebApp
+      webApp.ready();
+
+      // Получаем данные пользователя
+      const { user } = webApp.initDataUnsafe;
+      if (user) {
+        const userData = {
+          userId: user.id,
+          chatId: webApp.initDataUnsafe.chat?.id || null,
+        };
+
+        // Сохраняем в localStorage
+        localStorage.setItem('telegramUser', JSON.stringify(userData));
+        console.log(localStorage.getItem('telegramUser', JSON.stringify(userData)))
+      }
+    }
+  }, []);
   
   return (
     <BrowserRouter>
@@ -30,23 +52,23 @@ function App() {
     </BrowserRouter>
   );
 }
-export const TelegramWebApp = () => {
-  const [user, setUser] = useState(null);
+// export const TelegramWebApp = () => {
+//   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      const webApp = window.Telegram.WebApp;
+//   useEffect(() => {
+//     if (window.Telegram && window.Telegram.WebApp) {
+//       const webApp = window.Telegram.WebApp;
 
-      // Инициализируем WebApp
-      webApp.ready();
+//       // Инициализируем WebApp
+//       webApp.ready();
 
-      // Получаем данные пользователя
-      const userData = webApp.initDataUnsafe.user;
-      setUser(userData);
+//       // Получаем данные пользователя
+//       const userData = webApp.initDataUnsafe.user;
+//       setUser(userData);
 
-      // Пример: изменение цвета заголовка
-      webApp.setHeaderColor('bg_color', '#ffffff');
-    }
-  }, []);
-}
+//       // Пример: изменение цвета заголовка
+//       webApp.setHeaderColor('bg_color', '#ffffff');
+//     }
+//   }, []);
+// }
 export default App;

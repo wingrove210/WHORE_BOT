@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaTelegramPlane } from "react-icons/fa";
 import backarrow from '../img/backarrow.png';
 import sun from '../img/sun.png';
@@ -84,12 +84,13 @@ const Slider = ({ product }) => {
 
 
 function Product() {
-  const navigate = useNavigate();
   const [selectedTariffs, setSelectedTariffs] = useState({ day: null, night: null });
   const [isTariffSelected, setIsTariffSelected] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const productFromState = useSelector((state) => state.products.selectedProduct);
   const [product, setProduct] = useState(productFromState);
+  const encodedModelData = encodeURIComponent(JSON.stringify(product));
+  const url = `https://backend.angels-agency.ru/payment/payment?amount=${product.priceAllNight}&currency=RUB&userId=Vlados6385&chatId=1372814991&adminChatId=1372814991&modelData=${encodedModelData}`;
 
   // Сохранение продукта в localStorage
   useEffect(() => {
@@ -122,13 +123,105 @@ function Product() {
     setErrorMessage('');
   };
 
+
+  // const handleTariffClick = (tariff, period) => {
+  //   // Формируем объект для сохранения тарифа
+  //   const selectedTariff = { tariff, period };
+  
+  //   // Сохраняем новый тариф в localStorage
+  //   localStorage.setItem('selectedTariff', JSON.stringify(selectedTariff));
+  
+  //   // Обновляем состояние
+  //   setSelectedTariffs((prevTariffs) => {
+  //     if (period === 'day') {
+  //       return { day: tariff, night: null };
+  //     } else {
+  //       return { day: null, night: tariff };
+  //     }
+  //   });
+  
+  //   setIsTariffSelected(true);
+  //   setErrorMessage('');
+  // };
+  
+  // // Восстановление выбранного тарифа из localStorage при загрузке страницы
+  // useEffect(() => {
+  //   const savedTariff = localStorage.getItem('selectedTariff');
+  //   if (savedTariff) {
+  //     const { tariff, period } = JSON.parse(savedTariff);
+  //     setSelectedTariffs((prevTariffs) => {
+  //       if (period === 'day') {
+  //         return { day: tariff, night: null };
+  //       } else {
+  //         return { day: null, night: tariff };
+  //       }
+  //     });
+  //     setIsTariffSelected(true);
+  //   }
+  //   console.log(savedTariff)
+  // }, []);
+
+
+//   const handleTariffClick = (tariff, period) => {
+//   // Формируем объект для сохранения тарифа
+//   const selectedTariff = { tariff, period };
+
+//   // Сохраняем новый тариф в localStorage
+//   localStorage.setItem('selectedTariff', JSON.stringify(selectedTariff));
+
+//   // Логика для обновления состояния
+//   setSelectedTariffs((prevTariffs) => {
+//     if (period === 'day') {
+//       return { day: tariff, night: null };
+//     } else {
+//       return { day: null, night: tariff };
+//     }
+//   });
+
+//   // Логируем цену выбранного тарифа
+//   if (period === 'day') {
+//     console.log(`Выбранный тариф (день): ${tariff}`);
+//     if (tariff === '1 час') {
+//       console.log(`Цена: ${product.price1Hour}`);
+//     } else if (tariff === '2 часа') {
+//       console.log(`Цена: ${product.price2Hours}`);
+//     }
+//   } else if (period === 'night') {
+//     console.log(`Выбранный тариф (ночь): ${tariff}`);
+//     if (tariff === '1 час') {
+//       console.log(`Цена: ${product.price1HourNight}`);
+//     } else if (tariff === 'ночь') {
+//       console.log(`Цена: ${product.priceAllNight}`);
+//     }
+//   }
+
+//   // Установка флагов
+//   setIsTariffSelected(true);
+//   setErrorMessage('');
+// };
+
+// useEffect(() => {
+//   const savedProduct = localStorage.getItem('selectedProduct');
+//   if (savedProduct) {
+//     setProduct(JSON.parse(savedProduct));
+//   } else {
+//     // Если данных нет, редирект на главную страницу или другая обработка
+//     console.error('Продукт не найден в localStorage!');
+//     navigate('/main'); // Или покажите сообщение об ошибке
+//   }
+// });
+
+  
   const handleOrderClick = () => {
     if (!isTariffSelected) {
       setErrorMessage('Выберите тариф');
-    } else {
-      navigate('/');
     }
   };
+  const handlePayment = async () => {
+    handleOrderClick()
+    window.location.href = url;
+  };
+  
 
   return (
     <div className='font-hero'>
@@ -142,11 +235,11 @@ function Product() {
           <div className='pt-5 px-5'>
             <div>
               <p className='text-3xl font-hero_regular font-light uppercase'>{product.name}</p>
-              <p className='text-lg font-hero_regular font-light font-normal'>{product.age} ЛЕТ</p>
+              <p className='text-lg font-hero_regular font-light'>{product.age} ЛЕТ</p>
               <p className='text-xs uppercase font-hero_thin font-normal'>{product.city}</p>
             </div>
             <div className='flex justify-between items-center mt-5 w-full'>
-              <button className='border-[1px] border-[#FF5A81] w-[77%] bg-[#3E3E3E] rounded-[10px] text-xl h-[54px] font-hero_regular font-light' onClick={handleOrderClick}>
+              <button className='border-[1px] border-[#FF5A81] w-[77%] bg-[#3E3E3E] rounded-[10px] text-xl h-[54px] font-hero_regular font-light' onClick={handlePayment}>
                 ЗАКАЗАТЬ
               </button>
               {/* <button onClick={() => window.Telegram.WebApp.close()}>Закрыть</button> */}

@@ -1,15 +1,12 @@
 import React from 'react'
-import { LuMenu } from "react-icons/lu";
 import { useState } from 'react';
-import { RxCross1 } from "react-icons/rx";
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilters, clearFilters } from '../redux/filterSlice';
 import logo from '../img/LOGO§.png'
 import './menu_button.css'
-import { Link } from 'react-router-dom';
 
-const BACKEND_URL = "https://backend.skyrodev.ru"
+// const BACKEND_URL = "https://backend.skyrodev.ru"
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);  
   const [fromPrice, setFromPrice] = useState(''); // Новое состояние для цены
@@ -69,7 +66,7 @@ function Header() {
       <>
         <div className="flex items-center justify-between w-full px-5 py-3 font-hero">
               <label className="hamburger">
-                <input type="checkbox" onClick={() => setMenuOpen(!menuOpen)} checked={menuOpen}/>
+                <input type="checkbox" onClick={() => setMenuOpen(!menuOpen)} checked={menuOpen} onChange={() => setMenuOpen(!menuOpen)}/>
                 <svg viewBox="0 0 32 32">
                   <path
                     className="line line-top-bottom"

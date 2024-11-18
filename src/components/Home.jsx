@@ -5,9 +5,7 @@ import { IoIosArrowUp } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, setSelectedProduct } from '../redux/productSlice';
 import { clearFilters, setFilters } from '../redux/filterSlice';
-import AnimatedSilhouette from './Loading';
 import Header from './Header';
-import Error from './Error';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -16,7 +14,8 @@ import './swiper.css';
 
 function Catalog() {
   const dispatch = useDispatch();
-  const { products, error } = useSelector(state => state.products);
+  // const { products, error } = useSelector(state => state.products);
+  const { products } = useSelector(state => state.products);
   const filters = useSelector(state => state.filters);
   const [selectedCity, setSelectedCity] = useState(filters.city || '');
 
