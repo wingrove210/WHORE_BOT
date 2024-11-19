@@ -28,6 +28,7 @@ function App() {
         const userData = {
           userId: user.id,
           chatId: webApp.initDataUnsafe.chat?.id || null,
+          username: user.username,
         };
 
         // Сохраняем в localStorage

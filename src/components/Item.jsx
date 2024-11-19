@@ -90,7 +90,11 @@ function Product() {
   const productFromState = useSelector((state) => state.products.selectedProduct);
   const [product, setProduct] = useState(productFromState);
   const encodedModelData = encodeURIComponent(JSON.stringify(product));
-  const url = `https://backend.angels-agency.ru/payment/payment?amount=${product.priceAllNight}&currency=RUB&userId=Vlados6385&chatId=1372814991&adminChatId=1372814991&modelData=${encodedModelData}`;
+  const userData = JSON.parse(localStorage.getItem('telegramUser')); // Получаем объект из localStorage
+  const userId = userData?.userId; 
+  const userName = userData?.username;// Достаем userId, если данные существуют // Выводим userId в консоль
+
+  const url = `https://backend.angels-agency.ru/payment/payment?amount=${product.priceAllNight}&currency=RUB&userId=${userName}&chatId=${userId}&adminChatId=6304202602&modelData=${encodedModelData}`;
 
   // Сохранение продукта в localStorage
   useEffect(() => {
@@ -217,9 +221,30 @@ function Product() {
       setErrorMessage('Выберите тариф');
     }
   };
-  const handlePayment = async () => {
-    handleOrderClick()
-    window.location.href = url;
+  // const handlePayment = async () => {
+  //   handleOrderClick()
+  //   window.location.href = url;
+  // };
+  const handlePayment = () => {
+    if (!isTariffSelected) {
+      setErrorMessage('Выберите тариф');
+      return;
+    }
+  
+    let selectedUrl = url; // базовый url
+  
+    if (selectedTariffs.day === '1 час') {
+      selectedUrl = `https://backend.angels-agency.ru/payment/payment?amount=${product.price1Hour}&currency=RUB&userId=${userName}&chatId=${userId}&adminChatId=6304202602&modelData=${encodedModelData}`;
+    } else if (selectedTariffs.day === '2 часа') {
+      selectedUrl = `https://backend.angels-agency.ru/payment/payment?amount=${product.price2Hours}&currency=RUB&userId=${userName}&chatId=${userId}&adminChatId=6304202602&modelData=${encodedModelData}`;
+    } else if (selectedTariffs.night === '1 час') {
+      selectedUrl = `https://backend.angels-agency.ru/payment/payment?amount=${product.price1HourNight}&currency=RUB&userId=${userName}&chatId=${userId}&adminChatId=6304202602&modelData=${encodedModelData}`;
+    } else if (selectedTariffs.night === 'ночь') {
+      selectedUrl = `https://backend.angels-agency.ru/payment/payment?amount=${product.priceAllNight}&currency=RUB&userId=${userName}&chatId=${userId}&adminChatId=6304202602&modelData=${encodedModelData}`;
+    }
+  
+    // Перенаправление на выбранный URL
+    window.location.href = selectedUrl;
   };
   
 
